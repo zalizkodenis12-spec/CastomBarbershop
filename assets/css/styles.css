@@ -239,19 +239,32 @@ h1, h2, h3, .logo-text, .main-nav a, .mobile-nav a, .footer-nav a, .btn {
 
 /* ===== Price Table — Menu Style ===== */
 .price-table-wrap {
-  max-width: 780px;
+  max-width: 1100px;
   margin: 0 auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--surface);
   box-shadow: var(--shadow-lg);
+  /* Desktop: 3 columns side by side */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+/* Footer spans all 3 columns */
+.pt-footer {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
 }
 
 .pt-category {
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
 }
-.pt-category:last-of-type { border-bottom: none; }
+.pt-category:last-of-type { border-right: none; border-bottom: none; }
 
 .pt-cat-label {
   display: flex;
@@ -337,6 +350,16 @@ h1, h2, h3, .logo-text, .main-nav a, .mobile-nav a, .footer-nav a, .btn {
   transition: color var(--transition);
 }
 .pt-note a:hover { color: var(--accent); }
+
+/* ===== Review author ===== */
+.review-author {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
 
 /* ===== Works Gallery ===== */
 .works-section {
@@ -630,15 +653,22 @@ h1, h2, h3, .logo-text, .main-nav a, .mobile-nav a, .footer-nav a, .btn {
   .section-title { font-size: clamp(1.65rem, 7vw, 2.1rem); }
   .section-desc { font-size: 14.5px; }
 
-  /* Price table — mobile */
-  .price-table-wrap { border-radius: var(--radius-md); }
+  /* Price table — mobile: 1 column vertical */
+  .price-table-wrap {
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+  }
+  .pt-category { border-right: none; border-bottom: 1px solid var(--border); }
+  .pt-category:last-of-type { border-bottom: none; }
+  .pt-footer { grid-column: auto; }
   .pt-cat-label { padding: 14px 18px 12px; font-size: 11px; letter-spacing: 0.1em; }
   .pt-row { padding: 12px 18px; gap: 8px; }
   .pt-name { font-size: 14px; white-space: normal; }
   .pt-time { font-size: 11px; }
   .pt-price { font-size: 15px; min-width: 76px; }
   .pt-dots { min-width: 10px; }
-  .pt-footer { padding: 18px 18px; gap: 14px; flex-direction: column; align-items: flex-start; }
+  .pt-footer { padding: 18px; gap: 14px; flex-direction: column; align-items: flex-start; border-top: 1px solid var(--border); }
 
   /* Works — horizontal scroll, one big card */
   .works-section { padding: 56px 0; }
