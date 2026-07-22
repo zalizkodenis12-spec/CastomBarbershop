@@ -166,6 +166,7 @@ h1, h2, h3, .logo-text, .main-nav a, .mobile-nav a, .footer-nav a, .btn {
 .mobile-nav a { font-size: 22px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.04em; transition: color var(--transition); }
 .mobile-nav a:hover { color: var(--accent); }
 .mobile-nav .btn { margin-top: 8px; width: 240px; }
+.mobile-nav .btn-cta { color: #000000; }
 
 /* ===== Hero ===== */
 .hero {
